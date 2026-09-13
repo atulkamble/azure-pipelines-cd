@@ -218,22 +218,23 @@ Nginx / Apache / IIS
 ```
 
 Linux example:
-
 ```bash
 sudo apt update
 sudo apt install nginx -y
 sudo systemctl enable --now nginx
 ```
-
+Allow Firewall: 
+```
+sudo ufw allow 'Nginx Full'
+sudo ufw enable
+```
 Deployment command:
-
 ```bash
-sudo cp -r * /var/www/html/
+echo "<h1>Webserver: $(hostname)</h1>" | sudo tee /var/www/html/index.html
 sudo systemctl restart nginx
 ```
 
 Verify:
-
 ```bash
 curl localhost
 ```
